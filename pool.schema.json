@@ -1,0 +1,78 @@
+{
+  "title": "Pool Member Modification Page",
+  "description": "This is an example page on how to provide a UI for users to modify as3 pool members/status",
+  "definitions": {},
+  "type": "object",
+  "properties": {
+    "pool_members": {
+      "type": "array",
+      "title": "Pool Members",
+      "description": "The pool members are the servers that receive traffic from the virtual server (upstream). To share nodes between pools see K88250015: AS3 expected behavior of 'shareNodes' in declarations. https://my.f5.com/manage/s/article/K88250015 'Enable'->Maps to BIG-IP pool member state",
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "properties": {
+          "serverAddress": {
+            "type": "string",
+            "title": "Server Address"
+          },
+          "serverName": {
+            "type": "string",
+            "title": "Server Name"
+          },
+          "servicePort": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 65535,
+            "title": "Service Port",
+            "default": 80
+          },
+          "enable": {
+            "type": "boolean",
+            "title": "Enabled",
+            "default": true,
+            "format": "checkbox"
+          },
+          "adminState": {
+            "title": "Administration State",
+            "type": "string",
+            "enum": [
+              "enable",
+              "disable",
+              "offline"
+            ],
+            "default": "enable"
+          },
+          "shareNodes": {
+            "type": "boolean",
+            "title": "Share Node",
+            "default": false,
+            "format": "checkbox"
+          }
+        },
+        "required": [
+          "serverAddress",
+          "servicePort",
+          "adminState"
+        ]
+      },
+      "skip_xform": true,
+      "propertyOrder": 4,
+      "format": "table"
+    }
+  },
+  "required": [
+    "pool_members"
+  ],
+  "dependencies": {
+    "serverAddress": [
+      "pool_members"
+    ],
+    "servicePort": [
+      "pool_members"
+    ],
+    "shareNodes": [
+      "pool_members"
+    ]
+  }
+}

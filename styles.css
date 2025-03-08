@@ -1,0 +1,52 @@
+#details-container {
+    border-top: #ddddddc9 3px solid;
+    display: flex;
+}
+
+#nav-pane {
+    width: 250px;
+    padding: 10px;
+    border-right: 3px solid #ddddddc9;
+}
+
+.nav-box {
+  background-color: #fde7e7de;
+  padding: 10px;
+  border: 1px solid #ddddddc9;
+  margin-bottom: 10px;
+}
+
+#tenant-details {
+    padding: 10px;
+}
+
+#as3-details {
+    flex: 1;
+    padding: 10px;
+}
+
+#editor-container {
+    position: relative;
+    padding: 10px;
+    display: none;
+    /* Hide the editor-container by default */
+}
+
+#editor {
+    display: block;
+}
+
+#update-button,
+#clear-button {
+    position: absolute;
+    bottom: 3px;
+    padding: 3px;
+}
+
+#update-button {
+    left: 80px;
+}
+
+#clear-button {
+    left: 20px;
+}
