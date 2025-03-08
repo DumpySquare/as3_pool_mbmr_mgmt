@@ -143,10 +143,12 @@
       editor.setValue({ pool_members: selectedAppPool.pool_members });
     }
 
-    function clearEditor() {
+    async function clearEditor() {
       selectedAppPool = {};
       document.getElementById('editor-container').style.display = 'none';
       editor.setValue({ pool_members: [] });
+      await fetchJSONFiles();
+      renderDetails();
     }
 
     function updateEditor() {
